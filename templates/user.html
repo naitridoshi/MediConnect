@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}User{% endblock title %}
+{% block body %}
+{{userData}}
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Image</th>
+        <th scope="col">Role</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+        {%for data in userData%}
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{data.fname}}</td>
+        <td>{{data.image}}</td>
+        <td><img src="/{{data.role}}" style="height:200px"></td>
+      </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+{% endblock body %}
