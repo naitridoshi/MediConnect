@@ -6,6 +6,17 @@
         {% csrf_token %}
         <h2><center>Sign Up</center></h2>
         <hr>
+        
+        {% if messages %}
+        <div class="alert alert-{{color}}" role="alert">
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+        
         <div class="row g-3">
             <div class="col">
                 <label for="inputFName" class="form-label">First Name</label>
@@ -14,6 +25,10 @@
             <div class="col">
                 <label for="inputLName" class="form-label">Last Name</label>
                 <input type="text" class="form-control" id="inputLName" name="LName">
+            </div>
+            <div class="col">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username">
             </div>
         </div>
         <fieldset class="row mb-3 mt-2">
@@ -73,15 +88,16 @@
             <input type="text" class="form-control" id="inputState" name="state">
             </div>
             <div class="col-md-4">
-            <label for="inputCountry" class="form-label">Country</label>
-            <input type="text" class="form-control" id="inputCountry" name="country">
+            <label for="inputZip" class="form-label">Zip Code</label>
+            <input type="text" class="form-control" id="inputZip" name="country">
             </div>
             <div class="mb-3">
                 <label for="formFile" class="form-label">Profile Photo</label>
                 <input class="form-control" type="file" id="formFile" name="pic">
             </div>
             <div class="col-12">
-            <button type="submit" class="btn btn-primary">Sign in</button>
+            <p>Already have account? <a href="login/">Login</a></p>
+            <button type="submit" class="btn btn-primary" >Sign Up</button>
             </div>
         </div>
     </form>

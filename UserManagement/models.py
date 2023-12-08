@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -13,14 +14,12 @@ ROLE_CHOICES = (
 )
 
 
-class User(models.Model):
-    fname = models.CharField(max_length=50)
-    lname = models.CharField(max_length=50)
+class CustomUser(models.Model):
+    user = models.ForeignKey(
+        User, on_delete=models.SET_NULL, null=True, blank=True)
     gender = models.CharField(choices=GENDER_CHOICES, max_length=50)
-    email = models.EmailField()
-    password = models.CharField(max_length=50)
     address = models.TextField(max_length=500)
-    country = models.CharField(max_length=50)
+    zip = models.CharField(max_length=50)
     state = models.CharField(max_length=50)
     city = models.CharField(max_length=50)
     image = models.ImageField(upload_to="profile")
