@@ -2,15 +2,15 @@
 {% block title %}SignUp{% endblock title %}
 {% block body %}
 
-<div>
-    <div class="card" style="width: 18rem;">
+<div class="container mt-5">
+    <div class="col-6 mx-auto card p-3 shadow-lg" style="width: 18rem;">
         <img src="/media/{{request.user.image}}" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">{{request.user.first_name}} {{request.last_name}}</h5>
           <p class="card-text">Gender: {{request.user.gender}}</p>
           <p class="card-text">Username: {{request.user.username}}</p>
           <p class="card-text">Email: {{request.user.email}}</p>
-          <p class="card-text">Address: {{request.user.address}},{{request.user.city}},{{request.user.zip}},{{request.user.state}}</p>
+          <p class="card-text">Address: {{request.user.address}} , {{request.user.city}} , {{request.user.zipCode}} , {{request.user.state}}</p>
           <p class="card-text">Role: {{request.user.role}}</p>
           <a href="/logout/" class="btn btn-primary">Logout</a>
         </div>

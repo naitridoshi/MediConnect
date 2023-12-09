@@ -4,7 +4,9 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import get_user_model
 
+# User = get_user_model()
 
 # Create your views here.
 
@@ -19,43 +21,53 @@ def register(request):
         email = data.get('email')
         password = data.get('password')
         address = data.get('address')
-        zip = data.get('zip')
+        zipCode = data.get('zip')
         state = data.get('state')
         city = data.get('city')
         image = request.FILES.get('pic')
         role = data.get('gridRadios2')
 
-        user = User.objects.filter(username=username)
+        user = CustomUser.objects.filter(username=username)
         if user.exists():
             messages.error(request, " Username already exists.")
-            # context = {'color': 'danger'}
             return render(request, 'login_page.html', context={'color': 'danger'})
 
-        user = User.objects.create(
+        # user = CustomUser.objects.create(
+        #     username=username,
+        #     first_name=fname,
+        #     last_name=lname,
+        #     email=email,
+        # )
+
+        if role == "Patient":
+            is_patient = True
+            is_doctor = False
+        else:
+            is_patient = False
+            is_doctor = True
+
+        user = CustomUser.objects.create(
             username=username,
             first_name=fname,
             last_name=lname,
             email=email,
+            gender=gender,
+            address=address,
+            zipCode=zipCode,
+            state=state,
+            city=city,
+            image=image,
+            role=role,
+            is_patient=is_patient,
+            is_doctor=is_doctor
         )
 
         user.set_password(password)
         user.save()
 
-        CustomUser.objects.create(
-            gender=gender,
-            address=address,
-            zip=zip,
-            state=state,
-            city=city,
-            image=image,
-            role=role
-        )
-
-        queryset = CustomUser.objects.all()
-        context = {'userData': queryset}
         messages.success(request, "Account registered successfully")
-        # context = {'color': 'primary'}
         return render(request, 'login_page.html', context={'color': 'primary'})
+    # redirect(reverse('views.login_page', kwargs={ 'color': 'primary' }))
     # else:
     return render(request, 'register.html')
 
@@ -72,7 +84,7 @@ def login_page(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
 
-        if not User.objects.filter(username=username).exists():
+        if not CustomUser.objects.filter(username=username).exists():
             messages.error(request, 'Invalid username or password')
             return render(request, 'login_page.html', context={'color': 'danger'})
 
