@@ -1,0 +1,637 @@
+[
+  {
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+      "name": "Can add log entry",
+      "content_type": 1,
+      "codename": "add_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+      "name": "Can change log entry",
+      "content_type": 1,
+      "codename": "change_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+      "name": "Can delete log entry",
+      "content_type": 1,
+      "codename": "delete_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+      "name": "Can view log entry",
+      "content_type": 1,
+      "codename": "view_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+      "name": "Can add permission",
+      "content_type": 2,
+      "codename": "add_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+      "name": "Can change permission",
+      "content_type": 2,
+      "codename": "change_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+      "name": "Can delete permission",
+      "content_type": 2,
+      "codename": "delete_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+      "name": "Can view permission",
+      "content_type": 2,
+      "codename": "view_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+      "name": "Can add group",
+      "content_type": 3,
+      "codename": "add_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+      "name": "Can change group",
+      "content_type": 3,
+      "codename": "change_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+      "name": "Can delete group",
+      "content_type": 3,
+      "codename": "delete_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+      "name": "Can view group",
+      "content_type": 3,
+      "codename": "view_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+      "name": "Can add content type",
+      "content_type": 4,
+      "codename": "add_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+      "name": "Can change content type",
+      "content_type": 4,
+      "codename": "change_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+      "name": "Can delete content type",
+      "content_type": 4,
+      "codename": "delete_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+      "name": "Can view content type",
+      "content_type": 4,
+      "codename": "view_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+      "name": "Can add session",
+      "content_type": 5,
+      "codename": "add_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+      "name": "Can change session",
+      "content_type": 5,
+      "codename": "change_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+      "name": "Can delete session",
+      "content_type": 5,
+      "codename": "delete_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+      "name": "Can view session",
+      "content_type": 5,
+      "codename": "view_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+      "name": "Can add user",
+      "content_type": 6,
+      "codename": "add_customuser"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+      "name": "Can change user",
+      "content_type": 6,
+      "codename": "change_customuser"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+      "name": "Can delete user",
+      "content_type": 6,
+      "codename": "delete_customuser"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+      "name": "Can view user",
+      "content_type": 6,
+      "codename": "view_customuser"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+      "name": "Can add doctor",
+      "content_type": 7,
+      "codename": "add_doctor"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+      "name": "Can change doctor",
+      "content_type": 7,
+      "codename": "change_doctor"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+      "name": "Can delete doctor",
+      "content_type": 7,
+      "codename": "delete_doctor"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+      "name": "Can view doctor",
+      "content_type": 7,
+      "codename": "view_doctor"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+      "name": "Can add patient",
+      "content_type": 8,
+      "codename": "add_patient"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+      "name": "Can change patient",
+      "content_type": 8,
+      "codename": "change_patient"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+      "name": "Can delete patient",
+      "content_type": 8,
+      "codename": "delete_patient"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+      "name": "Can view patient",
+      "content_type": 8,
+      "codename": "view_patient"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+      "app_label": "admin",
+      "model": "logentry"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+      "app_label": "auth",
+      "model": "permission"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+      "app_label": "auth",
+      "model": "group"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+      "app_label": "contenttypes",
+      "model": "contenttype"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+      "app_label": "sessions",
+      "model": "session"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+      "app_label": "UserManagement",
+      "model": "customuser"
+    }
+  },
+
+ 
+  {
+    "model": "UserManagement.customuser",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$dLZBG8hxGocdv6hUlfxIbs$fsyhCR8yxJhjJVqtsNFaARzi1hxPmJIPJeF01OzK2cw=",
+      "last_login": "2023-12-09T06:47:03.975Z",
+      "is_superuser": false,
+      "username": "nd",
+      "first_name": "Naitri",
+      "last_name": "Doshi",
+      "email": "jesaldoshi123@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-12-09T06:43:01.766Z",
+      "is_patient": false,
+      "is_doctor": true,
+      "gender": "Female",
+      "address": "401, Yogidarshan Apartment,",
+      "zipCode": null,
+      "state": "GUJARAT",
+      "city": "Rajkot H.O",
+      "image": "",
+      "role": "Doctor",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "UserManagement.customuser",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$YZhPjdV0utrGzOMrVxG8jV$aM/tNaLusUuLzx/fbHHuvm7yaeuiiRCbqVvNMJ2cLRA=",
+      "last_login": "2023-12-09T07:03:08.044Z",
+      "is_superuser": false,
+      "username": "kc",
+      "first_name": "jkjkjkj",
+      "last_name": "jkjkjkj",
+      "email": "jkjk@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-12-09T06:47:33.697Z",
+      "is_patient": false,
+      "is_doctor": true,
+      "gender": "Female",
+      "address": "jkkjkjkj",
+      "zipCode": null,
+      "state": "jkjkkj",
+      "city": "jkjk",
+      "image": "profile/pp.jpg",
+      "role": "Doctor",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "UserManagement.customuser",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$HZU5hZXWX6F1ddGPwS3ngw$tCeNX5yf45+MtE5ZGfXZqsB5xcpbhOfZ7/2RSGq9Wgg=",
+      "last_login": "2023-12-09T07:42:55.961Z",
+      "is_superuser": true,
+      "username": "nd123",
+      "first_name": "",
+      "last_name": "",
+      "email": "nd@gmail.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-12-09T06:55:16.899Z",
+      "is_patient": false,
+      "is_doctor": false,
+      "gender": "",
+      "address": "",
+      "zipCode": null,
+      "state": "",
+      "city": "",
+      "image": "",
+      "role": null,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "UserManagement.customuser",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$tVX2cEZ8ts5J6E3f5TkcQ1$9FvpBDNK/Jr/3mlXwFrQ5qTBbZenTHivivz5yCibNv8=",
+      "last_login": "2023-12-09T07:05:12.522Z",
+      "is_superuser": false,
+      "username": "jkdoshi",
+      "first_name": "Jesal",
+      "last_name": "Doshi",
+      "email": "jkdoshi@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-12-09T07:04:26.219Z",
+      "is_patient": true,
+      "is_doctor": false,
+      "gender": "Female",
+      "address": "jk123,viarni",
+      "zipCode": null,
+      "state": "gujarat",
+      "city": "rajkot",
+      "image": "profile/formal_.jpg",
+      "role": "Patient",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "UserManagement.customuser",
+    "pk": 5,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$EkQeN7PasW9sd7rLsTMWyC$hVVLFwjmsfxAEe24qjmUZRAY2lro8ulgrHgcM+C0ILo=",
+      "last_login": "2023-12-09T07:08:36.464Z",
+      "is_superuser": false,
+      "username": "n123",
+      "first_name": "nk",
+      "last_name": "doshi",
+      "email": "naitridoshi@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-12-09T07:06:48.689Z",
+      "is_patient": true,
+      "is_doctor": false,
+      "gender": "Female",
+      "address": "viranichowk,ramdut",
+      "zipCode": null,
+      "state": "gujarat",
+      "city": "rajkot",
+      "image": "profile/pp_ELhJIWZ.jpg",
+      "role": "Patient",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "UserManagement.customuser",
+    "pk": 6,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$vYbn93xYHTBtWVWI8LL76D$+s427R6dZ6bEolGo9H3D2HDaAyms8bbfzAvSJeAlsRs=",
+      "last_login": "2023-12-09T07:27:13.890Z",
+      "is_superuser": false,
+      "username": "abcd",
+      "first_name": "Naitri",
+      "last_name": "Doshi",
+      "email": "jesaldoshi123@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-12-09T07:10:01.263Z",
+      "is_patient": false,
+      "is_doctor": true,
+      "gender": "Female",
+      "address": "401, Yogidarshan Apartment,",
+      "zipCode": null,
+      "state": "GUJARAT",
+      "city": "Rajkot H.O",
+      "image": "profile/NAITRI_AADHAR_.jpg",
+      "role": "Doctor",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "UserManagement.customuser",
+    "pk": 7,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$D0PqrolkcxMReJR98Hufwd$Jq05J+oXcTp1Jx6OEnbNEw6qwywSnAUR5KGf1b47YLw=",
+      "last_login": "2023-12-09T07:12:36.643Z",
+      "is_superuser": false,
+      "username": "def",
+      "first_name": "jkjkjkj",
+      "last_name": "jkjkjkj",
+      "email": "jkjk@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-12-09T07:12:18.531Z",
+      "is_patient": false,
+      "is_doctor": true,
+      "gender": "Female",
+      "address": "jkkjkjkj",
+      "zipCode": null,
+      "state": "jkjkkj",
+      "city": "jkjk",
+      "image": "",
+      "role": "Doctor",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "UserManagement.customuser",
+    "pk": 8,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$TUgGQBRFRqECBuOp1PVCoq$vYgVadYSGDk/Z63aCH9/V30xRz+XqY9/5BkAXPjfcxM=",
+      "last_login": "2023-12-09T07:13:13.275Z",
+      "is_superuser": false,
+      "username": "pqr",
+      "first_name": "Naitri",
+      "last_name": "Doshi",
+      "email": "jesaldoshi123@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-12-09T07:13:02.287Z",
+      "is_patient": false,
+      "is_doctor": true,
+      "gender": "Female",
+      "address": "Rajkot",
+      "zipCode": null,
+      "state": "Gujarat",
+      "city": "Rajkot",
+      "image": "",
+      "role": "Doctor",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "UserManagement.customuser",
+    "pk": 9,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$cdZ9Nltzy9W6yYaN8q11bp$SIhiXYp+EVcPqlLMIGkB0Pu8cy0rS6Uy0dxbo14Z1iY=",
+      "last_login": "2023-12-09T07:15:18.456Z",
+      "is_superuser": false,
+      "username": "kckckck",
+      "first_name": "frnr",
+      "last_name": "ndfgtrn",
+      "email": "fiuehf@vkdu",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-12-09T07:14:49.403Z",
+      "is_patient": false,
+      "is_doctor": true,
+      "gender": "Female",
+      "address": "bds",
+      "zipCode": null,
+      "state": "aflkjewl",
+      "city": "codh",
+      "image": "",
+      "role": "Doctor",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "UserManagement.customuser",
+    "pk": 10,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$vgkTIlXU4DiES82pF0FkW3$1m3Ko8rYO7O4Dp9otMeyGLwDex/AeUb6LpKS59iGfuA=",
+      "last_login": "2023-12-09T07:29:47.639Z",
+      "is_superuser": false,
+      "username": "qwerty678",
+      "first_name": "Naitri",
+      "last_name": "Doshi",
+      "email": "jesaldoshi123@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-12-09T07:27:53.056Z",
+      "is_patient": false,
+      "is_doctor": true,
+      "gender": "Female",
+      "address": "401, Yogidarshan Apartment,",
+      "zipCode": null,
+      "state": "GUJARAT",
+      "city": "Rajkot H.O",
+      "image": "profile/pp_RoLBtNe.jpg",
+      "role": "Doctor",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "UserManagement.customuser",
+    "pk": 11,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$HNpU3tLju6T4P7s14h06kr$TiCJJlJIVtqdQLKKbnXqffbasFzwjpXnOGpEExrBfio=",
+      "last_login": "2023-12-09T07:32:37.585Z",
+      "is_superuser": false,
+      "username": "mnbvc678",
+      "first_name": "Naitri",
+      "last_name": "Doshi",
+      "email": "jesaldoshi123@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-12-09T07:30:54.017Z",
+      "is_patient": true,
+      "is_doctor": false,
+      "gender": "Male",
+      "address": "401, Yogidarshan Apartment,",
+      "zipCode": 360001,
+      "state": "GUJARAT",
+      "city": "Rajkot H.O",
+      "image": "profile/profile_pic_YDfX2iO.jpg",
+      "role": "Patient",
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]

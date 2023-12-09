@@ -9,7 +9,7 @@
         {% if messages %}
         <ul class="messages">
                 {% for message in messages %}
-                <div class="alert alert-{{color}} " role="alert">
+                <div class="alert alert-primary " role="alert">
                 <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
                 </div>
                 {% endfor %} 

@@ -26,11 +26,12 @@ def register(request):
         city = data.get('city')
         image = request.FILES.get('pic')
         role = data.get('gridRadios2')
+        confirmPassword = data.get('confirmPassword')
 
         user = CustomUser.objects.filter(username=username)
         if user.exists():
             messages.error(request, " Username already exists.")
-            return render(request, 'login_page.html', context={'color': 'danger'})
+            return redirect('/login')
 
         # user = CustomUser.objects.create(
         #     username=username,
@@ -65,8 +66,12 @@ def register(request):
         user.set_password(password)
         user.save()
 
+        if not user.check_password(confirmPassword):
+            messages.error(request, "Both the Passwords do not match.")
+            return redirect('/register/')
+
         messages.success(request, "Account registered successfully")
-        return render(request, 'login_page.html', context={'color': 'primary'})
+        return redirect('/login/')
     # redirect(reverse('views.login_page', kwargs={ 'color': 'primary' }))
     # else:
     return render(request, 'register.html')
