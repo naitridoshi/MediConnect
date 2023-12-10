@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import get_user_model
+from django.contrib.auth.hashers import make_password, check_password
 
 # User = get_user_model()
 
@@ -32,6 +32,12 @@ def register(request):
         if user.exists():
             messages.error(request, " Username already exists.")
             return redirect('/login')
+
+        hash_password = make_password(password)
+
+        if not check_password(confirmPassword, hash_password):
+            messages.error(request, "Both the Passwords do not match.")
+            return redirect('/register/')
 
         # user = CustomUser.objects.create(
         #     username=username,
@@ -66,9 +72,10 @@ def register(request):
         user.set_password(password)
         user.save()
 
-        if not user.check_password(confirmPassword):
-            messages.error(request, "Both the Passwords do not match.")
-            return redirect('/register/')
+        if is_patient == True:
+            Patient.objects.create(user=user)
+        else:
+            Doctor.objects.create(user=user)
 
         messages.success(request, "Account registered successfully")
         return redirect('/login/')
