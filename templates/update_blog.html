@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% block title %}Create Blog{% endblock title %}
+{% block body %}
+<div class="container mt-5">
+    <form class="col-6 mx-auto card p-3 shadow-lg" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h2><center>Update Blog</center></h2>
+        <hr>
+        
+        {% if messages %}
+            <ul class="messages">
+                <div class="alert alert-primary" role="alert">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+                </div>
+            </ul>
+        
+        {% endif %}
+        
+        <div class="row g-3">
+            <div class="col">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" value={{blog_obj.title}} class="form-control" id="title" name="title" required>
+            </div>
+        </div>
+        <fieldset class="row mb-3 mt-3">
+            <div class="col mt-2">
+                <legend class="col-form-label col-sm-3 pt-0">Category</legend>
+                <div class="col-sm-10">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gridRadios" id="MentalHealthRadio" value="Mental Health" checked>
+                    <label class="form-check-label" for="MentalHealthRadio">
+                        Mental Health
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gridRadios" id="HeartDiseaseRadio" value="Heart Disease">
+                    <label class="form-check-label" for="HeartDiseaseRadio">
+                        Heart Disease
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gridRadios" id="Covid19Radio" value="Covid 19">
+                    <label class="form-check-label" for="Covid19Radio">
+                        Covid19
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gridRadios" id="ImmunizationRadio" value="Immunization">
+                    <label class="form-check-label" for="ImmunizationRadio">
+                        Immunization
+                    </label>
+                </div>
+                </div>
+            </div>
+        </fieldset>
+        <div class="row g-3 mt-2">
+            <div class="col-12">
+            <label for="inputSummary" class="form-label">Summary</label>
+            <input type="text" value={{blog_obj.summary}} class="form-control" id="inputSummary" name="summary" required>
+            </div>
+            <div class="col-md-12">
+                {{form.media}}
+                {{form.as_p}}
+            </div>
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Image</label>
+                <input class="form-control" type="file" id="formFile" name="image" value={{blog_obj.image}}>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="Draft" id="isDraft" name="isDraft">
+                <label class="form-check-label" for="isDraft">
+                    Incomplete Blog? Create a Draft
+                </label>
+              </div>
+            <div class="col-12">
+            <button class="btn btn-primary" type="submit" > Update Blog</a>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock body %}
+
+

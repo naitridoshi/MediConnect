@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.hashers import make_password, check_password
+from .form import *
 
 # User = get_user_model()
 
@@ -84,9 +85,10 @@ def register(request):
     return render(request, 'register.html')
 
 
+@login_required(login_url="/login/")
 def user(request):
-    queryset = CustomUser.objects.all()
-    context = {'userData': queryset}
+    blogs = BlogModel.objects.filter(draft=False)
+    context = {'blogs': blogs}
 
     return render(request, 'user.html', context)
 
@@ -107,7 +109,7 @@ def login_page(request):
             return render(request, 'login_page.html', context={'color': 'danger'})
         else:
             login(request, user)
-            return redirect('/dashboard/')
+            return redirect('/blogs')
     else:
         return render(request, 'login_page.html')
 
@@ -120,3 +122,135 @@ def logout_page(request):
 @login_required(login_url="/login/")
 def dashboard(request):
     return render(request, 'dashboard.html')
+
+
+@login_required(login_url="/login/")
+def add_blog(request):
+    context = {'form': BlogForm}
+
+    if request.method == 'POST':
+        form = BlogForm(request.POST)
+        image = request.FILES.get('image')
+        title = request.POST.get('title')
+        summary = request.POST.get('summary')
+        category = request.POST.get('gridRadios')
+        user = request.user
+        draft = request.POST.get('isDraft')
+
+        if form.is_valid():
+            print('Valid')
+            content = form.cleaned_data['content']
+
+        if draft == 'Valid':
+            draft = True
+        else:
+            draft = False
+
+        data = BlogModel.objects.create(
+            user=user,
+            content=content,
+            title=title,
+            image=image,
+            summary=summary,
+            category=category,
+            draft=draft
+        )
+        return redirect('/my-blogs')
+    return render(request, 'add_blog.html', context)
+
+
+@login_required(login_url="/login/")
+def blog_detail(request, slug):
+    context = {}
+    blog_obj = BlogModel.objects.filter(slug=slug).first()
+    context['blog_obj'] = blog_obj
+    return render(request, 'blog_detail.html', context)
+
+
+@login_required(login_url="/login/")
+def myblogs(request):
+    context = {}
+    blog_objs = BlogModel.objects.filter(user=request.user)
+    context['blog_objs'] = blog_objs
+    return render(request, 'myblogs.html', context)
+
+
+@login_required(login_url="/login/")
+def blog_delete(request, id):
+    blog_obj = BlogModel.objects.get(id=id)
+    if blog_obj.user == request.user:
+        blog_obj.delete()
+    return redirect('/my-blogs/')
+
+
+@login_required(login_url="/login/")
+def blog_update(request, slug):
+    context = {}
+    blog_obj = BlogModel.objects.get(slug=slug)
+    if blog_obj.user != request.user:
+        return redirect('/my-blogs')
+
+    initial_dict = {'content': blog_obj.content}
+    form = BlogForm(initial=initial_dict)
+    context['blog_obj'] = blog_obj
+    context['form'] = form
+    if request.method == 'POST':
+        form = BlogForm(request.POST)
+        # print(request.FILES)
+        image = request.FILES.get('image')
+        title = request.POST.get('title')
+        user = request.user
+        category = request.POST.get('gridRadios')
+        summary = request.POST.get('summary')
+        draft = request.POST.get('isDraft')
+        print(draft)
+
+        if form.is_valid():
+            content = form.cleaned_data['content']
+            form.save()
+
+        if draft == 'Valid':
+            draft = True
+        else:
+            draft = False
+
+        obj = BlogModel.objects.get(slug=slug)
+        obj.user = user
+        obj.title = title
+        obj.category = category
+        obj.summary = summary
+        obj.image = image
+        obj.draft = draft
+        obj.save()
+        # blog_obj = BlogModel.objects.create(
+        #     user=user, title=title,
+        #     content=content, image=image,
+        #     summary=summary, category=category,
+        #     draft=draft
+        # )
+
+    return render(request, 'update_blog.html', context)
+
+
+def mental_health(request):
+    blogs = BlogModel.objects.filter(category='Mental Health')
+    context = {'blogs': blogs}
+    return render(request, 'mental_health.html', context)
+
+
+def heart_disease(request):
+    blogs = BlogModel.objects.filter(category='Heart Disease')
+    context = {'blogs': blogs}
+    return render(request, 'mental_health.html', context)
+
+
+def covid19(request):
+    blogs = BlogModel.objects.filter(category='Covid 19')
+    context = {'blogs': blogs}
+    return render(request, 'mental_health.html', context)
+
+
+def immunization(request):
+    blogs = BlogModel.objects.filter(category='Immunization')
+    context = {'blogs': blogs}
+    return render(request, 'mental_health.html', context)

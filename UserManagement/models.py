@@ -1,7 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User, AbstractUser
 from django.dispatch import receiver
-# from UserManagement.manager import UserManager
+# from UserManagement.manager import UserManagers
+from froala_editor.fields import FroalaField
+from .helpers import *
 
 
 # Create your models here.
@@ -14,6 +16,13 @@ GENDER_CHOICES = (
 ROLE_CHOICES = (
     ('Doctor', 'Doctor'),
     ('Patient', 'Patient')
+)
+
+CATEGORY_CHOICES = (
+    ('Mental Health', 'Mental Health'),
+    ('Heart Disease', 'Heart Disease'),
+    ('Covid 19', 'Covid 19'),
+    ('Immunization', 'Immunization')
 )
 
 
@@ -52,38 +61,53 @@ class CustomUser(AbstractUser):
     # objects = UserManager()
 
 
-class PatientManager(models.Manager):
-    def sync_patients(self):
-        patients = CustomUser.objects.filter(is_patient=True)
-        for patient in patients:
-            patient_instance = self.create(user=patient)
+# class PatientManager(models.Manager):
+#     def sync_patients(self):
+#         patients = CustomUser.objects.filter(is_patient=True)
+#         for patient in patients:
+#             patient_instance = self.create(user=patient)
 
 
 class Patient(models.Model):
     user = models.OneToOneField(
         CustomUser, on_delete=models.CASCADE, primary_key=True)
-    objects = PatientManager()
-
-    # class Meta:
-    #     model=CustomUser
-    #     fields=('gender','address','zipCode','state','city','image')
+    # objects = PatientManager()
 
     def __str__(self):
-        return f"Patient: {self.user.username}, Gender: {self.user.gender}, Address: {self.user.address}"
+        return self.username
 
 
-class DoctorManager(models.Manager):
-    def sync_patients(self):
-        doctors = CustomUser.objects.filter(is_patient=True)
-        for doctor in doctors:
-            doctor_instance = self.create(user=doctor)
+# class DoctorManager(models.Manager):
+#     def sync_patients(self):
+#         doctors = CustomUser.objects.filter(is_patient=True)
+#         for doctor in doctors:
+#             doctor_instance = self.create(user=doctor)
 
 
 class Doctor(models.Model):
     user = models.OneToOneField(
         CustomUser, on_delete=models.CASCADE, primary_key=True)
     # Add specific fields related to doctors if needed
-    objects = DoctorManager()
+    # objects = DoctorManager()
 
     def __str__(self):
         return self.user.role
+
+
+class BlogModel(models.Model):
+    title = models.CharField(max_length=100)
+    image = models.ImageField(upload_to="blog")
+    category = models.CharField(choices=CATEGORY_CHOICES, max_length=50)
+    summary = models.CharField(max_length=1000)
+    content = FroalaField()
+    draft = models.BooleanField(default=False)
+    slug = models.SlugField(max_length=1000, null=True, blank=True)
+    user = models.ForeignKey(CustomUser, blank=True, null=True,
+                             on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title
+
+    def save(self, *args, **kwargs):
+        self.slug = generate_slug(self.title)
+        super(BlogModel, self).save(*args, **kwargs)

@@ -1,0 +1,32 @@
+{% extends 'base.html' %} {% block title %}Create Blog{% endblock title %}
+{%block body %}
+<section class="mt-5 pt-5">
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Blog Title</th>
+          <th scope="col">Blog Summary</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for blog in blog_objs %}
+        <tr>
+          <th scope="row">{{forloop.counter}}</th>
+          <td>{{blog.title}}</td>
+          <td>{{blog.summary}}</td>
+          <td>
+            <a href="{% url 'blog_delete' blog.id %}" class="btn btn-danger"
+              >Delete</a
+            >
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+{% endblock body %}

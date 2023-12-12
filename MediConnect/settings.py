@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "UserManagement",
+    "froala_editor",
+    'bootstrap5',
 ]
 
 MIDDLEWARE = [
