@@ -138,10 +138,10 @@ def add_blog(request):
         draft = request.POST.get('isDraft')
 
         if form.is_valid():
-            print('Valid')
+            # print(draft)
             content = form.cleaned_data['content']
 
-        if draft == 'Valid':
+        if draft == 'Draft':
             draft = True
         else:
             draft = False
@@ -233,24 +233,24 @@ def blog_update(request, slug):
 
 
 def mental_health(request):
-    blogs = BlogModel.objects.filter(category='Mental Health')
+    blogs = BlogModel.objects.filter(category='Mental Health', draft=False)
     context = {'blogs': blogs}
     return render(request, 'mental_health.html', context)
 
 
 def heart_disease(request):
-    blogs = BlogModel.objects.filter(category='Heart Disease')
+    blogs = BlogModel.objects.filter(category='Heart Disease', draft=False)
     context = {'blogs': blogs}
     return render(request, 'mental_health.html', context)
 
 
 def covid19(request):
-    blogs = BlogModel.objects.filter(category='Covid 19')
+    blogs = BlogModel.objects.filter(category='Covid 19', draft=False)
     context = {'blogs': blogs}
     return render(request, 'mental_health.html', context)
 
 
 def immunization(request):
-    blogs = BlogModel.objects.filter(category='Immunization')
+    blogs = BlogModel.objects.filter(category='Immunization', draft=False)
     context = {'blogs': blogs}
     return render(request, 'mental_health.html', context)

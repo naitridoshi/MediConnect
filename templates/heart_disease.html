@@ -24,7 +24,7 @@
           <h5 class="my-2"><a class="text-dark" href="{% url 'blog_detail' blog.slug %}">
            {{blog.title}}          </a></h5>
           <p class="my-2 text-muted text-sm">
-            {{blog.summary}}</p>
+            {{blog.summary|truncatewords:15}}</p>
           <!-- <p class="my-2 text-muted text-sm">
             {{blog.content|safe}}
           </p>
