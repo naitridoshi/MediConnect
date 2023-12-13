@@ -1,4 +1,5 @@
-## A Django Web-App for Both Patients and Doctors having Sign and LOgin authentication.
+## A Django Web-App for Both Patients and Doctors having Sign and Login authentication
+## A Blog web-app integrated with the login authentication, to perform CRUD Operation on the blogs.
 
 
 
